@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ListVC.swift
 //  OnTheMap
 //
 //  Created by Zachary Rose on 11/27/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
