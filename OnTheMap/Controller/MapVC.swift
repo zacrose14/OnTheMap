@@ -15,5 +15,8 @@ class MapVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func test(_ sender: Any) {
+        performSegue(withIdentifier: "mapToAddLocationSegue", sender: (Any).self)
+    }
 }
 

@@ -15,5 +15,8 @@ class LoginVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func loginPressed(_ sender: Any) {
+        performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+    }
+    
 }
