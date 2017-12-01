@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		117259541FD1D0BD007146E2 /* AddStudentLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */; };
 		11AF804D1FCCC782003E46E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF804C1FCCC782003E46E5 /* AppDelegate.swift */; };
 		11AF804F1FCCC782003E46E5 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF804E1FCCC782003E46E5 /* ListVC.swift */; };
 		11AF80511FCCC782003E46E5 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF80501FCCC782003E46E5 /* MapVC.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationVC.swift; sourceTree = "<group>"; };
 		11AF80491FCCC782003E46E5 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AF804C1FCCC782003E46E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11AF804E1FCCC782003E46E5 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				11AF80501FCCC782003E46E5 /* MapVC.swift */,
 				11AF80731FCF6E73003E46E5 /* LoginVC.swift */,
+				117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */,
 				11AF804E1FCCC782003E46E5 /* ListVC.swift */,
 			);
 			path = Controller;
@@ -205,6 +208,7 @@
 				11AF807F1FCF709C003E46E5 /* UdacityClient.swift in Sources */,
 				11AF80511FCCC782003E46E5 /* MapVC.swift in Sources */,
 				11AF80791FCF6F08003E46E5 /* UdacityConstants.swift in Sources */,
+				117259541FD1D0BD007146E2 /* AddStudentLocationVC.swift in Sources */,
 				11AF807D1FCF708D003E46E5 /* ParseClient.swift in Sources */,
 				11AF804D1FCCC782003E46E5 /* AppDelegate.swift in Sources */,
 				11AF80741FCF6E73003E46E5 /* LoginVC.swift in Sources */,
