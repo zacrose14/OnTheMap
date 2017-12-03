@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import MapKit
 
-class MapVC: UIViewController {
-
+class MapVC: UIViewController, MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @IBAction func test(_ sender: Any) {
-        performSegue(withIdentifier: "mapToAddLocationSegue", sender: (Any).self)
+    @IBAction func addLocationPressed(_ sender: Any) {
     }
+    
+    @IBAction func refreshPressed(_ sender: Any) {
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+    }
+    
+    
 }
 

@@ -10,6 +10,10 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +21,9 @@ class LoginVC: UIViewController {
     }
     @IBAction func loginPressed(_ sender: Any) {
         performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+    }
+    
+    @IBAction func signUpPressed(_ sender: Any) {
     }
     
 }

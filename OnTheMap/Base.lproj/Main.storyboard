@@ -22,14 +22,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="On The Map" id="Rer-SE-XNP">
-                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dkh-l5-NhT"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dkh-l5-NhT">
+                                            <connections>
+                                                <action selector="logoutTapped:" destination="9pv-A4-QxB" id="5Xk-2D-yVU"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" image="icon_pin" id="GMn-gy-wIS">
                                                 <connections>
-                                                    <action selector="test:" destination="9pv-A4-QxB" id="ZrS-pG-FFC"/>
+                                                    <action selector="addLocationPressed:" destination="9pv-A4-QxB" id="R60-Pj-6nJ"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Item" image="icon_refresh" id="zau-UG-s4S"/>
+                                            <barButtonItem title="Item" image="icon_refresh" id="zau-UG-s4S">
+                                                <connections>
+                                                    <action selector="refreshPressed:" destination="9pv-A4-QxB" id="BJa-k6-WBb"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -52,6 +60,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-selected" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="mapView" destination="Rej-55-t0L" id="Sb3-9S-DEl"/>
                         <segue destination="c7s-H0-xSq" kind="presentation" identifier="mapToAddLocationSegue" id="PZ3-Xg-BC2"/>
                     </connections>
                 </viewController>
@@ -89,15 +98,24 @@
                                 <rect key="frame" x="141" y="399" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Find Location"/>
+                                <connections>
+                                    <action selector="findLocationPressed:" destination="uva-Xg-RTM" eventType="touchUpInside" id="C62-ha-0y8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Dcv-sf-LQu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="rD6-EJ-fge">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="deJ-mO-gx2"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="deJ-mO-gx2">
+                            <connections>
+                                <action selector="cancelPressed:" destination="uva-Xg-RTM" id="ovA-An-gDL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationTextField" destination="lcZ-uJ-BLF" id="0xE-NO-2Ff"/>
+                        <outlet property="subjectTextField" destination="RKs-2h-ZB5" id="TXM-oi-75Q"/>
                         <segue destination="sha-jy-qIG" kind="show" id="NDD-p2-RwQ"/>
                     </connections>
                 </viewController>
@@ -105,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="2628" y="-321.58920539730138"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Student Location MapVC-->
         <scene sceneID="t2h-9f-LWe">
             <objects>
-                <viewController id="sha-jy-qIG" sceneMemberID="viewController">
+                <viewController id="sha-jy-qIG" customClass="AddStudentLocationMapVC" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxo-TQ-4on">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,6 +149,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FlI-s2-Ecu"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Il1-PV-9OT" id="IlH-gb-1Op"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsV-0S-kUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,10 +185,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="On The Map" id="82k-ru-dRA">
-                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hSu-8k-6VR"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hSu-8k-6VR">
+                                            <connections>
+                                                <action selector="logoutTapped:" destination="8rJ-Kc-sve" id="Xrb-bv-s0w"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="icon_pin" id="0nM-e2-5AL"/>
-                                            <barButtonItem image="icon_refresh" id="dtl-J8-rfd"/>
+                                            <barButtonItem title="Item" image="icon_pin" id="0nM-e2-5AL">
+                                                <connections>
+                                                    <action selector="addLocationPressed:" destination="8rJ-Kc-sve" id="jyU-K4-d51"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="icon_refresh" id="dtl-J8-rfd">
+                                                <connections>
+                                                    <action selector="refreshPressed:" destination="8rJ-Kc-sve" id="dyU-N8-znt"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -259,12 +292,17 @@
                                 <rect key="frame" x="216" y="418" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="2p6-5A-vK3" eventType="touchUpInside" id="nIx-zv-vbL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fJ4-gm-ykY"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="Ltd-QI-3x0" id="7HE-ny-kmP"/>
+                        <outlet property="passwordTextField" destination="5ug-Zh-yDq" id="tbF-nt-6tx"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="loginSuccessSegue" id="inM-qd-QW4"/>
                     </connections>
                 </viewController>
