@@ -11,13 +11,14 @@ import MapKit
 
 class AddStudentLocationMapVC: UIViewController, MKMapViewDelegate  {
 
+    var locationManager =  CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Load location from previous VC here.
     }
 
 }

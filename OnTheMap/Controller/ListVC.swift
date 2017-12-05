@@ -15,12 +15,17 @@ class ListVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    // MARK: Actions (Buttons)
+    
+    // Add Loction
     @IBAction func addLocationPressed(_ sender: Any) {
     }
     
+    // Refresh
     @IBAction func refreshPressed(_ sender: Any) {
     }
     
+    // Logout
     @IBAction func logoutTapped(_ sender: Any) {
     }
 }

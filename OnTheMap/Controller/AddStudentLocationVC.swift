@@ -20,9 +20,11 @@ class AddStudentLocationVC: UIViewController {
     }
 
     @IBAction func findLocationPressed(_ sender: Any) {
+        // Auto find location using iphone GPS (if equipped and authorized by user), allow manual entry otherwise.
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
+        // Perform unwind Segue
     }
     
 }

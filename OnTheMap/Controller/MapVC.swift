@@ -18,12 +18,18 @@ class MapVC: UIViewController, MKMapViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    // MARK: Actions (Buttons)
+    
+    // Add Location Action
     @IBAction func addLocationPressed(_ sender: Any) {
     }
     
+    // Refresh Action
     @IBAction func refreshPressed(_ sender: Any) {
+    
     }
     
+    // Logout Action
     @IBAction func logoutTapped(_ sender: Any) {
     }
     
