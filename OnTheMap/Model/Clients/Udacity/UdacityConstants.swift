@@ -13,37 +13,36 @@ extension UdacityClient {
     // MARK: Constants
     struct Constants {
         
-        static let ApiKey = ""
-        
         static let ApiScheme = "https"
         static let ApiHost = "udacity.com"
         static let ApiPath = "/api"
-        
+        static let SignupPath = "/account/auth#!/signup"
     }
     
     // MARK: Methods
     struct Methods {
         
+        static let SessionCreate = "session"
+        static let SessionDelete = "session"
+        static let GetPublicData = "users/{user_id}"
     }
     
     // MARK: URL Keys
     struct URLKeys {
         
-    }
-    
-    // MARK: Parameter Keys
-    struct ParameterKeys {
-        static let ApiKey = "api_key"
-        
-    }
-    
-    // MARK: JSON Body Keys
-    struct JSONBodyKeys {
-        
+        static let UserID = "user_id"
     }
     
     // MARK: JSON Response Keys
     struct JSONResponseKeys {
         
+        static let Session = "session"
+        static let ID = "id"
+        static let Status = "status"
+        static let Account = "account"
+        static let Key = "key"
+        static let User = "user"
+        static let FirstName = "first_name"
+        static let LastName = "last_name"
     }
 }

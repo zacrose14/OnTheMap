@@ -13,9 +13,13 @@ class UdacityClient : NSObject {
     // shared session
     var session = URLSession.shared
     
+    // User key from a POST session
+    var userKey: String?
+    
     // MARK: Initializers
     override init() {
         super.init()
+        session = URLSession.shared
     }
     
     // MARK: GET

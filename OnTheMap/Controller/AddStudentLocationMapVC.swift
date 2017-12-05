@@ -17,8 +17,11 @@ class AddStudentLocationMapVC: UIViewController, MKMapViewDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self as! CLLocationManagerDelegate
 
         // Load location from previous VC here.
+        // Add code to allow autodetect using GPS?
     }
 
 }

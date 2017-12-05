@@ -45,5 +45,7 @@ extension ParseClient {
     // MARK: JSON Response Keys
     struct JSONResponseKeys {
         
+        static let Results = "results"
+        static let CreatedAt = "createdAt"
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113843CE1FD6E3480065EC92 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113843CD1FD6E3480065EC92 /* UserModel.swift */; };
 		117259541FD1D0BD007146E2 /* AddStudentLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */; };
 		117259561FD20DE3007146E2 /* AddStudentLocationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117259551FD20DE3007146E2 /* AddStudentLocationMapVC.swift */; };
 		11AF804D1FCCC782003E46E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF804C1FCCC782003E46E5 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		113843CD1FD6E3480065EC92 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationVC.swift; sourceTree = "<group>"; };
 		117259551FD20DE3007146E2 /* AddStudentLocationMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationMapVC.swift; sourceTree = "<group>"; };
 		11AF80491FCCC782003E46E5 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113843CC1FD6E2CA0065EC92 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				113843CD1FD6E3480065EC92 /* UserModel.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
 		11AF80401FCCC782003E46E5 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		11AF80701FCF6C07003E46E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				113843CC1FD6E2CA0065EC92 /* Data Models */,
 				11AF80751FCF6EC6003E46E5 /* Clients */,
 			);
 			path = Model;
@@ -218,6 +229,7 @@
 				11AF80741FCF6E73003E46E5 /* LoginVC.swift in Sources */,
 				11AF804F1FCCC782003E46E5 /* ListVC.swift in Sources */,
 				11AF807B1FCF6F1B003E46E5 /* ParseConstants.swift in Sources */,
+				113843CE1FD6E3480065EC92 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
