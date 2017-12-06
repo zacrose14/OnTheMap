@@ -34,18 +34,23 @@ extension ParseClient {
     
     // MARK: Parameter Keys
     struct ParameterKeys {
+        static let Limit = "limit"
         
     }
-    
-    // MARK: JSON Body Keys
-    struct JSONBodyKeys {
-        
-    }
-    
+
     // MARK: JSON Response Keys
     struct JSONResponseKeys {
         
         static let Results = "results"
         static let CreatedAt = "createdAt"
+        static let FirstName = "firstName"
+        static let LastName = "lastName"
+        static let Longitude = "longitude"
+        static let Latitude = "latitude"
+        static let MapString = "mapString"
+        static let MediaURL = "mediaURL"
+        static let ObjectID = "objectId"
+        static let UniqueKey = "uniqueKey"
+        static let UpdatedAt = "updatedAt"
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		113843CE1FD6E3480065EC92 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113843CD1FD6E3480065EC92 /* UserModel.swift */; };
+		113843D01FD6F46A0065EC92 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113843CF1FD6F46A0065EC92 /* StudentInfo.swift */; };
 		117259541FD1D0BD007146E2 /* AddStudentLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */; };
 		117259561FD20DE3007146E2 /* AddStudentLocationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117259551FD20DE3007146E2 /* AddStudentLocationMapVC.swift */; };
 		11AF804D1FCCC782003E46E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF804C1FCCC782003E46E5 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		113843CD1FD6E3480065EC92 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		113843CF1FD6F46A0065EC92 /* StudentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		117259531FD1D0BD007146E2 /* AddStudentLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationVC.swift; sourceTree = "<group>"; };
 		117259551FD20DE3007146E2 /* AddStudentLocationMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentLocationMapVC.swift; sourceTree = "<group>"; };
 		11AF80491FCCC782003E46E5 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				113843CD1FD6E3480065EC92 /* UserModel.swift */,
+				113843CF1FD6F46A0065EC92 /* StudentInfo.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				117259561FD20DE3007146E2 /* AddStudentLocationMapVC.swift in Sources */,
 				11AF807F1FCF709C003E46E5 /* UdacityClient.swift in Sources */,
 				11AF80511FCCC782003E46E5 /* MapVC.swift in Sources */,
+				113843D01FD6F46A0065EC92 /* StudentInfo.swift in Sources */,
 				11AF80791FCF6F08003E46E5 /* UdacityConstants.swift in Sources */,
 				117259541FD1D0BD007146E2 /* AddStudentLocationVC.swift in Sources */,
 				11AF807D1FCF708D003E46E5 /* ParseClient.swift in Sources */,

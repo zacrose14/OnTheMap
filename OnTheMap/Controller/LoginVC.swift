@@ -24,6 +24,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
+        
     }
     
 }

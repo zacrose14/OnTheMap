@@ -10,8 +10,11 @@ import Foundation
 
 class ParseClient : NSObject {
     
-    // shared session
+    // Shared session
     var session = URLSession.shared
+    
+    // Student Info Dict used in ListVC and MapVC
+    var studentDictionary: [StudentInfo] = [StudentInfo]()
     
     // MARK: Initializers
     override init() {
