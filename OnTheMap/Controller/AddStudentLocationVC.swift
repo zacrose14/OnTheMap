@@ -24,7 +24,7 @@ class AddStudentLocationVC: UIViewController {
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
-        // Perform unwind Segue
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
