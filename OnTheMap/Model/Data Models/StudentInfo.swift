@@ -35,4 +35,15 @@ struct StudentInfo {
         updatedAt = dictionary[ParseClient.JSONResponseKeys.UpdatedAt] as? String
         
     }
+    
+    // MARK: Helper function to convert array of dictionaries to array of StudentInfo Objects
+    static func studentsFromResults(_ results: [[String : AnyObject]]) -> [StudentInfo] {
+        var students = [StudentInfo]()
+        
+        for result in results {
+            students.append(StudentInfo(dictionary: result))
+        }
+        
+        return students
+    }
 }

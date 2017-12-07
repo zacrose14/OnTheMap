@@ -11,5 +11,10 @@ import UIKit
 import MapKit
 
 extension ParseClient {
-    // Add functions that are repeated here.
+    
+    // Function to get student locations
+    
+    // Function to creat annotations
+    
+    // Function to post student locations
 }

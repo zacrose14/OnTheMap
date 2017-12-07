@@ -21,4 +21,13 @@ struct UserModel {
         lastName = dictionary[UdacityClient.JSONResponseKeys.LastName] as? String
     }
     
+    // MARK: Helper Function
+    static func userData(_ userData: [String : AnyObject]) -> [UserModel] {
+        
+        var user = [UserModel]()
+        
+        user.append(UserModel(dictionary: userData))
+        
+        return user
+    }
 }

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qub-jh-lbb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="On The Map" id="Rer-SE-XNP">
                                         <barButtonItem key="leftBarButtonItem" title="Logout" id="dkh-l5-NhT">
@@ -43,14 +43,14 @@
                                 </items>
                             </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rej-55-t0L">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rej-55-t0L" firstAttribute="top" secondItem="Qub-jh-lbb" secondAttribute="bottom" id="3nC-fA-fIr"/>
                             <constraint firstItem="Qub-jh-lbb" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="O6C-pO-ysZ"/>
-                            <constraint firstItem="Qub-jh-lbb" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="Q38-o4-C9I"/>
+                            <constraint firstItem="Qub-jh-lbb" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="Q38-o4-C9I"/>
                             <constraint firstItem="Rej-55-t0L" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="QFg-0k-mXP"/>
                             <constraint firstItem="Rej-55-t0L" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="ZUi-Hy-win"/>
                             <constraint firstItem="Qub-jh-lbb" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="jCT-X4-aOX"/>
@@ -339,6 +339,6 @@
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w1d-TX-W6j"/>
+        <segue reference="PZ3-Xg-BC2"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,7 +19,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        session = URLSession.shared
     }
     @IBAction func loginPressed(_ sender: Any) {
         
@@ -32,7 +32,17 @@ class LoginVC: UIViewController {
             uiAlertController.addAction(action)
             self.present(uiAlertController, animated: true, completion: nil)
         } else {
-            performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+            UdacityClient.sharedInstance().authenticateUser(emailTextField.text!, password: passwordTextField.text!) { (success, error) in
+                performUIUpdatesOnMain {
+                    if success {
+                        self.performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+                    } else {
+                        print(error)
+                    }
+                    
+                }
+            }
+ 
         }
     }
     

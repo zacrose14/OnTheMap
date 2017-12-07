@@ -27,7 +27,7 @@ class ParseClient : NSObject {
     
     // MARK: Helpers
     
-    // substitute the key for the value that is contained within the method name (from the Udacity iOS Nanodegree Course, Section 5)
+    // Substitute the key for the value that is contained within the method name (from the Udacity iOS Nanodegree Course, Section 5)
     func substituteKeyInMethod(_ method: String, key: String, value: String) -> String? {
         if method.range(of: "{\(key)}") != nil {
             return method.replacingOccurrences(of: "{\(key)}", with: value)
@@ -36,7 +36,7 @@ class ParseClient : NSObject {
         }
     }
     
-    // given raw JSON, return a usable Foundation object (Also from the Udacity iOS Nanodegree Course, Section 5)
+    // Given raw JSON, return a usable Foundation object (Also from the Udacity iOS Nanodegree Course, Section 5)
     private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         var parsedResult: AnyObject! = nil
@@ -50,7 +50,7 @@ class ParseClient : NSObject {
         completionHandlerForConvertData(parsedResult, nil)
     }
     
-    // create a URL from parameters (Credit: Udacity iOS Nanodegree Course, section 5)
+    // Create a URL from parameters (Credit: Udacity iOS Nanodegree Course, section 5)
     private func parseURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
