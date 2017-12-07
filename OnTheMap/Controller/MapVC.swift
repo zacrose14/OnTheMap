@@ -31,6 +31,13 @@ class MapVC: UIViewController, MKMapViewDelegate {
     
     // Logout Action
     @IBAction func logoutTapped(_ sender: Any) {
+        UdacityClient.sharedInstance().logout() { success, error in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(error!)
+            }
+        }
     }
     
     

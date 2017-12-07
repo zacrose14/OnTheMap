@@ -49,24 +49,7 @@ class UdacityClient : NSObject {
         
         completionHandlerForConvertData(parsedResult, nil)
     }
-    
-    // Create a URL from parameters (Credit: Udacity iOS Nanodegree Course, section 5)
-    private func parseURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
-        var components = URLComponents()
-        components.scheme = UdacityClient.Constants.ApiScheme
-        components.host = UdacityClient.Constants.ApiHost
-        components.path = UdacityClient.Constants.ApiPath + (withPathExtension ?? "")
-        components.queryItems = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.queryItems!.append(queryItem)
-        }
-        
-        return components.url!
-    }
-    
     // MARK: Shared Instance
     
     class func sharedInstance() -> UdacityClient{

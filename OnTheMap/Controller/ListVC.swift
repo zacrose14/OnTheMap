@@ -25,8 +25,15 @@ class ListVC: UIViewController {
     @IBAction func refreshPressed(_ sender: Any) {
     }
     
-    // Logout
+    // MARK: Logout Action
     @IBAction func logoutTapped(_ sender: Any) {
+        UdacityClient.sharedInstance().logout() { success, error in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(error!)
+            }
+        }
     }
 }
 
