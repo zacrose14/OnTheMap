@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FacebookLogin
 
 class MapVC: UIViewController, MKMapViewDelegate {
     
