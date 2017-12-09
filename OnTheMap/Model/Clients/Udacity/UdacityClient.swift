@@ -49,6 +49,23 @@ class UdacityClient : NSObject {
         
         completionHandlerForConvertData(parsedResult, nil)
     }
+    
+    // From Udacity Networking course
+    class func udacityURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
+        
+        var components = URLComponents()
+        components.scheme = UdacityClient.Constants.APIScheme
+        components.host = UdacityClient.Constants.APIHost
+        components.path = UdacityClient.Constants.APIPath + (withPathExtension ?? "")
+        components.queryItems = [URLQueryItem]()
+        
+        for (key, value) in parameters {
+            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            components.queryItems!.append(queryItem)
+        }
+        
+        return components.url!
+    }
         
     // MARK: Shared Instance
     

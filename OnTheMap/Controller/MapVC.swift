@@ -14,9 +14,13 @@ class MapVC: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getStudentLocations()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     // MARK: Actions (Buttons)
@@ -28,6 +32,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
     // Refresh Action
     @IBAction func refreshPressed(_ sender: Any) {
     
+        getStudentLocations()
     }
     
     // Logout Action
@@ -41,6 +46,52 @@ class MapVC: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // Function to get student locations
+    func getStudentLocations() {
+
+        ParseClient.sharedInstance().getStudentLocations(){(result, error) in
+            
+            ParseClient.sharedInstance().studentDictionary = result!
+            
+            if error == nil {
+                ParseClient.sharedInstance().createAnnotationsFromLocations(result!) { (result, error) in
+
+                    if error == nil {
+                        
+                        performUIUpdatesOnMain {
+                            self.mapView.addAnnotations(result!)
+                        }
+                    } else {
+                        self.displayError(error?.localizedDescription)
+                    }
+                    
+                }
+                
+            } else {
+                self.displayError(error?.localizedDescription)
+                
+            }
+        }
+    }
     
+    // MARK: Error Functions and Alerts
+    func displayError(_ errorString: String?) {
+        performUIUpdatesOnMain {
+            if let errorString = errorString {
+                self.showAlert(errorString)
+            }
+        }
+    }
+    
+    func showAlert(_ errorMessage: String?) {
+        
+        let alertController = UIAlertController(title: nil, message: errorMessage!, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) {(action) in
+        }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true){
+        }
+        
+    }
 }
 

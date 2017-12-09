@@ -19,6 +19,7 @@ class ParseClient : NSObject {
     // MARK: Initializers
     override init() {
         super.init()
+        session = URLSession.shared
     }
 
     // MARK: GET
@@ -48,6 +49,23 @@ class ParseClient : NSObject {
         }
         
         completionHandlerForConvertData(parsedResult, nil)
+    }
+    
+    // From Udacity iOS Course
+    class func parseURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
+        
+        var components = URLComponents()
+        components.scheme = ParseClient.Constants.APIScheme
+        components.host = ParseClient.Constants.APIHost
+        components.path = ParseClient.Constants.APIPath + (withPathExtension ?? "")
+        components.queryItems = [URLQueryItem]()
+        
+        for (key, value) in parameters {
+            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            components.queryItems!.append(queryItem)
+        }
+        
+        return components.url!
     }
     
     // MARK: Shared Instance

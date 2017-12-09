@@ -28,14 +28,10 @@ extension UdacityClient {
     func getSessionID(_ email: String, password: String, completionHandlerForGetSession: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
         
         // 1. Set the parameters
-        // Set via POST request
+        // Set via POST
         
-        // 2. Build the URL
-        let urlString = UdacityClient.Constants.BaseURL + UdacityClient.Methods.SessionCreate
-        let url = URL(string: urlString)!
-        
-        // 3. Configure the request
-        let request = NSMutableURLRequest(url: url)
+        // 2/3. Build the URL/Configure Request
+        let request = NSMutableURLRequest(url: URL(string:UdacityClient.Constants.BaseURL + UdacityClient.Methods.SessionCreate)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -107,16 +103,12 @@ extension UdacityClient {
         task.resume()
     }
     
-    func logout(_ completionHandlerForLogout:@escaping (_ success: Bool, _ error: NSError?) -> Void) {
+    func logout(completionHandlerForLogout:@escaping (_ success: Bool, _ error: NSError?) -> Void) {
         // 1. Set the parameters
         // Set via DELETE request
         
-        // 2. Build the URL
-        let urlString = UdacityClient.Constants.BaseURL + UdacityClient.Methods.SessionDelete
-        let url = URL(string: urlString)!
-        
-        // 3. Configure the request
-        let request = NSMutableURLRequest(url: url)
+        // 2/3. Build the URL/Configure Request
+        let request = NSMutableURLRequest(url: URL(string: UdacityClient.Constants.BaseURL + UdacityClient.Methods.SessionDelete)!)
         request.httpMethod = "DELETE"
         
         var xsrfCookie: HTTPCookie? = nil
@@ -196,12 +188,8 @@ extension UdacityClient {
         var mutableMethod: String = UdacityClient.Methods.GetPublicData
         mutableMethod = UdacityClient.substituteKeyInMethod(mutableMethod, key: UdacityClient.URLKeys.UserID, value: String(key))!
         
-        // 2. Build the URL
-        let urlString = UdacityClient.Constants.BaseURL + mutableMethod
-        let url = URL(string: urlString)!
-        
-        // 3. Configure the request
-        let request = NSMutableURLRequest(url: url)
+        // 2/3. Build the URL/Configure the Request
+        let request = NSMutableURLRequest(url: URL(string: UdacityClient.Constants.BaseURL + mutableMethod)!)
         
         // 4. Make the request
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in

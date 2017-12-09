@@ -16,6 +16,9 @@ extension ParseClient {
         static let ApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
         static let AppID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
         static let BaseURL: String = "https://parse.udacity.com/parse/classes/StudentLocation"
+        static let APIScheme = "https"
+        static let APIHost = "parse.udacity.com"
+        static let APIPath = "/parse/classes/StudentLocation"
   
     }
     
