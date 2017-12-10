@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsV-0S-kUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597.5999999999999" y="-325.18740629685158"/>
+            <point key="canvasLocation" x="3444" y="-321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iws-ii-HX0">

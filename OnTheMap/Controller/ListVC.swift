@@ -30,6 +30,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Add Loction
     @IBAction func addLocationPressed(_ sender: Any) {
+        performSegue(withIdentifier: "listToAddLocationSegue", sender: UIBarButtonItem.self)
     }
     
     // Refresh

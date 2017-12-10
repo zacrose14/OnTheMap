@@ -124,4 +124,16 @@ extension ParseClient {
     }
     
     // Function to post student locations
+    func postStudentLocation(_ uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String, latitude: Double, longitude: Double, completionHandlerForPostStudent: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+        let methodParameters: [String:Any] = [ParseClient.JSONResponseKeys.UniqueKey: uniqueKey, ParseClient.JSONResponseKeys.FirstName: firstName, ParseClient.JSONResponseKeys.LastName: lastName, ParseClient.JSONResponseKeys.MapString: mapString, ParseClient.JSONResponseKeys.MediaURL: mediaURL, ParseClient.JSONResponseKeys.Latitude: latitude, ParseClient.JSONResponseKeys.Longitude: longitude]
+        
+        taskForPostMethod(methodParameters as [String: AnyObject]) { (success, error) in
+            if success {
+                completionHandlerForPostStudent(true, nil)
+            } else {
+                completionHandlerForPostStudent(false, "There appears to have been an error: \(error)")
+            }
+        }
+    }
+    
 }
