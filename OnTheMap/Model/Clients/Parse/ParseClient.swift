@@ -24,8 +24,6 @@ class ParseClient : NSObject {
 
     // MARK: GET
     
-    // MARK: POST
-    
     // MARK: Helpers
     
     // Substitute the key for the value that is contained within the method name (from the Udacity iOS Nanodegree Course, Section 5)
@@ -52,7 +50,7 @@ class ParseClient : NSObject {
     }
     
     // From Udacity iOS Course
-    
+    // MARK: POST
     func taskForPostMethod(_ methodParameters: [String:AnyObject], completionHandlerForTaskForPost: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
         let request = NSMutableURLRequest(url: URL(string: ParseClient.Constants.BaseURL)!)
         request.httpMethod = "POST"
