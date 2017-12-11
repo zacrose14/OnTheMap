@@ -83,9 +83,72 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func submitPressed(_ sender: Any) {
+        
+        self.activityIndicator.startAnimating()
+        self.findLocationButton.isEnabled = false
+        
+        // Make sure both fields are filled out
+        if self.locationTextField.text!.isEmpty || subjectTextField.text!.isEmpty {
+            self.displayError("Must Enter a Link and Location")
+        } else {
+            // Validate URL (Credit: Stack Over, see function for source)
+            if self.validateURL(self.subjectTextField.text!) {
+                
+                // Prevent Double Entry
+                self.submitLocation.isEnabled = false
+                
+                UdacityClient.sharedInstance().getPublicUserData(UdacityClient.sharedInstance().userKey!) { (success, error) in
+                    
+                    
+                    if success {
+                        
+                        var tempKey: String?
+                        var tempFirstName: String?
+                        var tempLastName: String?
+                        
+                        for member in UdacityClient.sharedInstance().userModel {
+                            tempKey = member.userKey!
+                            tempFirstName = member.firstName!
+                            tempLastName = member.lastName!
+                        }
+                        // Post Student Location
+                        ParseClient.sharedInstance().postStudentLocation(tempKey!, firstName: tempFirstName!, lastName: tempLastName!, mapString: self.locationTextField.text!, mediaURL: self.locationTextField.text!, latitude: self.latitude!, longitude: self.longitude!)  { (success, error) in
+                            
+                            if success {
+                                performUIUpdatesOnMain {
+                                    self.dismiss(animated: true, completion: nil)
+                                    self.activityIndicator.stopAnimating()
+                                }
+                                
+                            } else {
+                                self.displayError("Error! Could not Post Location!")
+                                performUIUpdatesOnMain {
+                                    
+                                    self.submitLocation.isEnabled = true
+                                }
+                            }
+                            
+                        }
+                        
+                    } else {
+                        self.displayError(error?.localizedDescription)
+                        performUIUpdatesOnMain {
+                            self.submitLocation.isEnabled = true
+                        }
+                        
+                    }
+                }
+                
+                
+            } else {
+                self.displayError("Invalid Link. Include http(s)://")
+            }
+        }
+        
+        
     }
     
-    
+    // Cancel Function
     @IBAction func cancelPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -97,6 +160,16 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    // Validate URL Function
+    // Credit: https://stackoverflow.com/questions/39996840/validate-url-in-swift-3
+    func validateURL(_ url: String) -> Bool {
+        let pattern = "^(https?:\\/\\/)([a-zA-Z0-9_\\-~]+\\.)+[a-zA-Z0-9_\\-~\\/\\.]+$"
+        if let _ = url.range(of: pattern, options: .regularExpression){
+            return true
+        }
+        return false
     }
     
     // MARK: Error Functions and Alerts

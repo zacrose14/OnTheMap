@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import FacebookLogin
 
 class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -38,7 +37,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         refreshData()
     }
     
-    // MARK: Logout Action
+    // Logout Action
     @IBAction func logoutTapped(_ sender: Any) {
         UdacityClient.sharedInstance().logout() { success, error in
             if success{
@@ -48,9 +47,8 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
+    // Refresh Action
     func refreshData(){
-        // get locations
         ParseClient.sharedInstance().getStudentLocations(){(result, error) in
             // proceeed if we got result from Parse API with student locations (information)
             if error == nil {

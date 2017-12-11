@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FacebookLogin
 
 class LoginVC: UIViewController {
 
@@ -31,6 +30,9 @@ class LoginVC: UIViewController {
         
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
+        
+        emailTextField.text = ""
+        passwordTextField.text = ""
     }
     
     // MARK: Login Action
@@ -63,7 +65,10 @@ class LoginVC: UIViewController {
     @IBAction func signUpPressed(_ sender: Any) {
         
         // Open Udacity SignUp URL
-        UIApplication.shared.openURL(URL(string: UdacityClient.Constants.SignupPath)!)
+        let url = URL(string: UdacityClient.Constants.SignupPath)
+        if UIApplication.shared.canOpenURL(url!) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
     }
     
     // MARK: Keyboard Functions

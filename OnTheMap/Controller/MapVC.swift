@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import FacebookLogin
 
 class MapVC: UIViewController, MKMapViewDelegate {
     
@@ -27,6 +26,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
     // MARK: Actions (Buttons)
     // Add Location Action
     @IBAction func addLocationPressed(_ sender: Any) {
+        performSegue(withIdentifier: "mapToAddLocationSegue", sender: UIBarButtonItem.self)
     }
     
     // Refresh Action
@@ -74,6 +74,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // MARK: Map Delegates
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
