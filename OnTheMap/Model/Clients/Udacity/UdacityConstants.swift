@@ -28,6 +28,7 @@ extension UdacityClient {
         static let GetPublicData = "users/{user_id}"
     }
     
+    // MARK: Login Errors
     struct LoginError{
         static let AccountError = "Invalid Email or Password"
         static let NetworkError = "Error! Check Network Connection"
