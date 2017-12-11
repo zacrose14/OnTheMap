@@ -14,15 +14,13 @@ class ParseClient : NSObject {
     var session = URLSession.shared
     
     // Student Info Dict used in ListVC and MapVC
-    var studentDictionary: [StudentInfo] = [StudentInfo]()
+    var studentDictionary = [StudentInfo]()
     
     // MARK: Initializers
     override init() {
         super.init()
         session = URLSession.shared
     }
-
-    // MARK: GET
     
     // MARK: Helpers
     
@@ -84,6 +82,7 @@ class ParseClient : NSObject {
         task.resume()
     }
     
+    // Build URL From Paramaters (Credit: Udacity Nanodegree)
     class func parseURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()

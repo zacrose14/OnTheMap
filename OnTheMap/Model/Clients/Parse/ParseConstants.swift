@@ -25,6 +25,7 @@ extension ParseClient {
     // MARK: Parameter Keys
     struct ParameterKeys {
         static let Limit = "limit"
+        static let Order = "order"
         
     }
 

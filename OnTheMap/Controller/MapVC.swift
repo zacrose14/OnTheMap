@@ -16,11 +16,12 @@ class MapVC: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getStudentLocations()
+        getStudentLocations()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        getStudentLocations()
     }
 
     // MARK: Actions (Buttons)
@@ -49,6 +50,10 @@ class MapVC: UIViewController, MKMapViewDelegate {
     // Function to get student locations
     func getStudentLocations() {
 
+        if ParseClient.sharedInstance().studentDictionary.isEmpty {
+            displayError("There are no students to show!")
+        } else {
+        
         ParseClient.sharedInstance().getStudentLocations(){(result, error) in
             
             ParseClient.sharedInstance().studentDictionary = result!
@@ -71,6 +76,8 @@ class MapVC: UIViewController, MKMapViewDelegate {
                 self.displayError(error?.localizedDescription)
                 
             }
+            }
+            
         }
     }
     
@@ -96,9 +103,12 @@ class MapVC: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = view.annotation?.subtitle! {
-                app.openURL(URL(string: toOpen)!)
+            if let mediaURL = NSURL(string: ((view.annotation?.subtitle)!)!) {
+                if UIApplication.shared.canOpenURL(mediaURL as URL) {
+                    UIApplication.shared.open(mediaURL as URL)
+                } else {
+                    displayError("Error! Cannot Open That URL!")
+                }
             }
         }
     }
@@ -118,7 +128,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
         let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) {(action) in
         }
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true){
+        present(alertController, animated: true){
         }
         
     }

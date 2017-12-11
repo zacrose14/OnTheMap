@@ -13,10 +13,10 @@ import MapKit
 extension ParseClient {
     
     // Function to get student locations
-    func getStudentLocations(_ locationsNumber: Int = 100, completionHandlerForGetLocations: @escaping (_ result: [StudentInfo]?, _ error: NSError?) -> Void) {
+    func getStudentLocations(completionHandlerForGetLocations: @escaping (_ result: [StudentInfo]?, _ error: NSError?) -> Void) {
         
         // 1. Set the parameters
-        let methodParameters = [ParseClient.ParameterKeys.Limit: locationsNumber]
+        let methodParameters: [String:Any] = [ParseClient.ParameterKeys.Limit: 100, ParseClient.ParameterKeys.Order: "-updatedAt"]
         
         // 2/3. Build the URL and configure request
         let request = NSMutableURLRequest(url: ParseClient.parseURLFromParameters(methodParameters as [String : AnyObject]))

@@ -40,19 +40,26 @@ class LoginVC: UIViewController {
         
         // Check to make sure fields aren't emply
         if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            self.showAlert("Username or Password Empty")
+            showAlert("Username or Password Empty")
         } else {
             UdacityClient.sharedInstance().authenticateUser(emailTextField.text!, password: passwordTextField.text!) { (success, error) in
                 performUIUpdatesOnMain {
                     if success {
                         
                         // Success sends to MapVC
+                        if (error == nil) {
                         self.activityIndicator.startAnimating()
                         
-                        self.performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+                            self.performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+                            
+                        } else {
+                            performUIUpdatesOnMain {
+                                self.displayError(UdacityClient.LoginError.AccountError)
+                            }
+                        }
                     } else {
                         // Otherwise, display error here
-                        self.displayError(error?.localizedDescription)
+                        self.displayError(UdacityClient.LoginError.NetworkError)
                     }
                     
                 }
@@ -73,11 +80,11 @@ class LoginVC: UIViewController {
     
     // MARK: Keyboard Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        view.endEditing(true)
         return true;
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     // MARK: Error Functions and Alerts
@@ -95,7 +102,7 @@ class LoginVC: UIViewController {
         let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) {(action) in
         }
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true){
+        present(alertController, animated: true){
         }
         
     }

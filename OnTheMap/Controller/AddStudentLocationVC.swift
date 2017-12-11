@@ -131,7 +131,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                         }
                         
                     } else {
-                        self.displayError(error?.localizedDescription)
+                        self.displayError("There was an error with your request. Please try again later.")
                         performUIUpdatesOnMain {
                             self.submitLocation.isEnabled = true
                         }
@@ -187,7 +187,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
         let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) {(action) in
         }
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true){
+        present(alertController, animated: true){
         }
         
     }

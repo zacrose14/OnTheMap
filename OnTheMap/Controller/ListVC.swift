@@ -85,8 +85,14 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let app = UIApplication.shared
-        app.openURL(URL(string: ParseClient.sharedInstance().studentDictionary[indexPath.row].mediaURL!)!)
+        let studentURL = ParseClient.sharedInstance().studentDictionary[indexPath.row].mediaURL
+        
+        if let studentMediaURL = URL(string: studentURL!), UIApplication.shared.canOpenURL(studentMediaURL) {
+            // Open URL
+            UIApplication.shared.open(studentMediaURL)
+        } else {
+            displayError("That's not a valid URL!")
+        }
         
     }
     
@@ -105,7 +111,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) {(action) in
         }
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true){
+        present(alertController, animated: true){
         }
         
     }
