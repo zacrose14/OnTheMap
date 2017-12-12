@@ -73,7 +73,23 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)! as UITableViewCell
         
         // Cell Defaults
-        cell.textLabel!.text = student.firstName! + " " + student.lastName!
+        
+        var displayFirstName: String = ""
+        var displayLastName: String = ""
+        
+        if let firstName = student.firstName {
+            displayFirstName = firstName
+        } else {
+            displayFirstName = "[empty]"
+        }
+        
+        if let lastName = student.lastName {
+            displayLastName = lastName
+        } else {
+            displayLastName = "[empty]"
+        }
+        
+        cell.textLabel?.text = "\(displayFirstName) \(displayLastName)"
         cell.imageView!.image = UIImage(named: "icon_pin")
         
         return cell

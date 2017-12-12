@@ -83,12 +83,13 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func submitPressed(_ sender: Any) {
+        performUIUpdatesOnMain {
         
         self.activityIndicator.startAnimating()
         self.findLocationButton.isEnabled = false
         
         // Make sure both fields are filled out
-        if self.locationTextField.text!.isEmpty || subjectTextField.text!.isEmpty {
+            if self.locationTextField.text!.isEmpty || self.subjectTextField.text!.isEmpty {
             self.displayError("Must Enter a Link and Location")
         } else {
             // Validate URL (Credit: Stack Over, see function for source)
@@ -149,7 +150,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
             }
         }
         
-        
+        }
     }
     
     // Cancel Function
