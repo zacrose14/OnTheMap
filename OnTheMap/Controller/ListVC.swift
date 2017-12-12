@@ -103,11 +103,17 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let studentURL = StudentInfo.studentLocations[indexPath.row].mediaURL
         
-        if let studentMediaURL = URL(string: studentURL!), UIApplication.shared.canOpenURL(studentMediaURL) {
+        if studentURL != nil {
+        
+            if let studentMediaURL = URL(string: studentURL!), UIApplication.shared.canOpenURL(studentMediaURL) {
             // Open URL
             UIApplication.shared.open(studentMediaURL)
-        } else {
-            displayError("That's not a valid URL!")
+            } else {
+                displayError("That's not a valid URL!")
+            
+                }
+            } else {
+            displayError("There's no URL to Display!")
         }
         
     }

@@ -113,6 +113,8 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                             tempLastName = member.lastName!
                         }
                         // Post Student Location
+                        performUIUpdatesOnMain {
+                            
                         ParseClient.sharedInstance().postStudentLocation(tempKey!, firstName: tempFirstName!, lastName: tempLastName!, mapString: self.locationTextField.text!, mediaURL: self.locationTextField.text!, latitude: self.latitude!, longitude: self.longitude!)  { (success, error) in
                             
                             if success {
@@ -132,7 +134,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                             }
                             
                         }
-                        
+                        }
                     } else {
                         self.displayError("There was an error with your request. Please try again later.")
                         performUIUpdatesOnMain {

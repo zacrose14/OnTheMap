@@ -17,7 +17,7 @@ class BorderedButton: UIButton {
     let darkerBlue = UIColor(red: 0.0, green: 0.298, blue: 0.686, alpha:1.0)
     let lighterBlue = UIColor(red: 0.0, green:0.502, blue:0.839, alpha: 1.0)
     let titleLabelFontSize: CGFloat = 17.0
-    let borderedButtonHeight: CGFloat = 44.0
+    let borderedButtonHeight: CGFloat = 40.0
     let borderedButtonCornerRadius: CGFloat = 4.0
     let phoneBorderedButtonExtraPadding: CGFloat = 14.0
     

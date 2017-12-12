@@ -281,7 +281,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bOu-mU-cxV">
-                                <rect key="frame" x="16" y="335" width="239" height="30"/>
+                                <rect key="frame" x="16" y="385" width="239" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdv-xP-vbH">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
@@ -307,9 +307,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-3a-SQL">
                                 <rect key="frame" x="156" y="55" width="62" height="150"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-Yz-Xif" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="16" y="335" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="13o-K3-6kS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JFg-Yz-Xif" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="DO9-9L-rMR"/>
                             <constraint firstItem="lU2-eA-cr1" firstAttribute="centerX" secondItem="Ltd-QI-3x0" secondAttribute="centerX" id="EUk-h8-CDu"/>
                             <constraint firstItem="hEd-3a-SQL" firstAttribute="centerX" secondItem="lU2-eA-cr1" secondAttribute="centerX" id="FUc-KD-hag"/>
                             <constraint firstItem="5ug-Zh-yDq" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="IhE-QR-xmZ"/>
@@ -318,10 +326,12 @@
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="T8R-p6-QUH"/>
                             <constraint firstItem="6Ol-E7-pLs" firstAttribute="trailing" secondItem="fJ4-gm-ykY" secondAttribute="trailing" constant="-16" id="UeD-9f-GtS"/>
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="Vr1-vW-8Jo"/>
+                            <constraint firstItem="fJ4-gm-ykY" firstAttribute="trailing" secondItem="JFg-Yz-Xif" secondAttribute="trailing" constant="16" id="W3O-dE-bNH"/>
                             <constraint firstItem="hEd-3a-SQL" firstAttribute="top" secondItem="fJ4-gm-ykY" secondAttribute="top" constant="35" id="bNg-Qm-wLS"/>
+                            <constraint firstItem="bOu-mU-cxV" firstAttribute="top" secondItem="JFg-Yz-Xif" secondAttribute="bottom" constant="10" id="cvU-XX-pf4"/>
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="top" secondItem="lU2-eA-cr1" secondAttribute="bottom" constant="8" symbolic="YES" id="dgP-u3-SLG"/>
                             <constraint firstItem="5ug-Zh-yDq" firstAttribute="top" secondItem="Ltd-QI-3x0" secondAttribute="bottom" constant="10" id="ijP-is-oCE"/>
-                            <constraint firstItem="bOu-mU-cxV" firstAttribute="top" secondItem="6Ol-E7-pLs" secondAttribute="bottom" constant="10" id="kHr-SE-bky"/>
+                            <constraint firstItem="JFg-Yz-Xif" firstAttribute="top" secondItem="6Ol-E7-pLs" secondAttribute="bottom" constant="10" id="lJA-74-Q58"/>
                             <constraint firstItem="6Ol-E7-pLs" firstAttribute="top" secondItem="5ug-Zh-yDq" secondAttribute="bottom" constant="10" id="mLK-WC-4DY"/>
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="trailing" secondItem="fJ4-gm-ykY" secondAttribute="trailing" constant="-16" id="mmf-Nb-HbY"/>
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="top" secondItem="hEd-3a-SQL" secondAttribute="bottom" constant="10" id="oLy-nk-0gm"/>
@@ -334,6 +344,7 @@
                         <outlet property="activityIndicator" destination="lU2-eA-cr1" id="xUN-6J-OzH"/>
                         <outlet property="emailTextField" destination="Ltd-QI-3x0" id="7HE-ny-kmP"/>
                         <outlet property="loginButton" destination="6Ol-E7-pLs" id="fcM-Dn-ZFc"/>
+                        <outlet property="loginFaceBook" destination="JFg-Yz-Xif" id="iY5-sD-daa"/>
                         <outlet property="passwordTextField" destination="5ug-Zh-yDq" id="tbF-nt-6tx"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="loginSuccessSegue" id="inM-qd-QW4"/>
                     </connections>

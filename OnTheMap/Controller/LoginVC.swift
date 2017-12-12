@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class LoginVC: UIViewController {
 
@@ -14,6 +15,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: BorderedButton!
+    @IBOutlet weak var loginFaceBook: FBSDKLoginButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var session: URLSession!
@@ -90,6 +92,20 @@ class LoginVC: UIViewController {
         return  returnValue
     }
     
+    func performFBLogin(_ FBToken: String) {
+        UdacityClient.sharedInstance().performFacebookLogin(FBToken, completionHandlerFBLogin: {(success, error) in
+            if success {
+                performUIUpdatesOnMain {
+                    self.activityIndicator.startAnimating()
+                    self.performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
+                }
+            } else {
+                self.displayError("Unable To Log In With Facebook")
+                
+            }
+            })
+    }
+    
     // MARK: Signup Action
     @IBAction func signUpPressed(_ sender: Any) {
         
@@ -129,5 +145,20 @@ class LoginVC: UIViewController {
         present(alertController, animated: true){
         }
         
+    }
+}
+
+extension LoginVC: FBSDKLoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginFaceBook: FBSDKLoginButton!) {
+        print("Did log out of facebook")
+    }
+    
+    func loginButton(_ loginFaceBook: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            showAlert("Failed to login using facebook")
+            return
+        }
+        
+        self.performFBLogin(result.token.tokenString)
     }
 }

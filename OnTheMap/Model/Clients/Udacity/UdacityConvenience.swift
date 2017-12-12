@@ -110,6 +110,86 @@ extension UdacityClient {
         task.resume()
     }
     
+    func performFacebookLogin(_ FBAccessToken: String, completionHandlerFBLogin: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+        
+        let request = NSMutableURLRequest(url: URL(string: UdacityClient.Constants.BaseURL + UdacityClient.Methods.SessionCreate)!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = "{\"facebook_mobile\": {\"access_token\": \"\(FBAccessToken)\"}}".data(using: String.Encoding.utf8)
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            func sendError(_ error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey : error]
+                completionHandlerFBLogin(false, NSError(domain: "getSessionID", code: 1, userInfo: userInfo))
+            }
+            
+            // GUARD: Was there an error?
+            guard error == nil else {
+                
+                sendError("There appears to be a problem with the network!")
+                return
+            }
+            
+            // GUARD: 403 Forbidden Error (Invalid Creds)
+            guard let statusCodeForbidden = (response as? HTTPURLResponse)?.statusCode, statusCodeForbidden != 403 else {
+                sendError("The email and/or password you entered are incorrect")
+                return
+            }
+            
+            // GUARD: Did we get a successful 2XX response?
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                
+                sendError("Invalid Response. Please Try Again LAter")
+                return
+            }
+            
+            // GUARD: Was there any data returned?
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            // 5. Parse the data
+            // Get respone data (per Udacity sheet, first 5 character should be skipped)
+            
+            let range = Range(5..<data.count)
+            
+            let newData = data.subdata(in: range)
+            
+            let parsedResult: [String:AnyObject]
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                print("Could not parse the data as JSON: '\(data)'")
+                return
+            }
+            
+            if let _ = parsedResult[UdacityClient.JSONResponseKeys.Session]?.value(forKey: UdacityClient.JSONResponseKeys.ID) as? String {
+                
+      
+                UdacityClient.sharedInstance().userKey = parsedResult[UdacityClient.JSONResponseKeys.Account]?.value(forKey: UdacityClient.JSONResponseKeys.Key) as? String
+                
+                
+                completionHandlerFBLogin(true, nil)
+            } else {
+                if let status = parsedResult[UdacityClient.JSONResponseKeys.Status] as? Int {
+                    if status == 403 {
+                        completionHandlerFBLogin(false, NSError(domain: "Parsed SessionID", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid Email or Password"]))
+                    } else if status == 400 {
+                        completionHandlerFBLogin(false, NSError(domain: "Parsed SessionID", code: 0, userInfo: [NSLocalizedDescriptionKey: "Post request failed. Try again later."]))
+                    }
+                }
+            }
+            
+            
+        }
+        // 7. Start the request
+        task.resume()
+    }
+    
     func logout(completionHandlerForLogout:@escaping (_ success: Bool, _ error: NSError?) -> Void) {
         // 1. Set the parameters
         // Set via DELETE request

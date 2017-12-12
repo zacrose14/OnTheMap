@@ -11,4 +11,6 @@ target 'OnTheMap' do
 
 pod 'FacebookCore'
 pod 'FacebookLogin'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
 end
