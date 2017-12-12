@@ -118,6 +118,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                                 performUIUpdatesOnMain {
                                     self.dismiss(animated: true, completion: nil)
                                     self.activityIndicator.stopAnimating()
+                                    self.activityIndicator.isHidden = true
                                 }
                                 
                             } else {
@@ -125,6 +126,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                                 performUIUpdatesOnMain {
                                     
                                     self.submitLocation.isEnabled = true
+                                    self.activityIndicator.isHidden = true
                                 }
                             }
                             
@@ -134,6 +136,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                         self.displayError("There was an error with your request. Please try again later.")
                         performUIUpdatesOnMain {
                             self.submitLocation.isEnabled = true
+                            self.activityIndicator.isHidden = true
                         }
                         
                     }
@@ -142,6 +145,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                 
             } else {
                 self.displayError("Invalid Link. Include http(s)://")
+                self.activityIndicator.isHidden = true
             }
         }
         

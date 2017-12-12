@@ -65,6 +65,8 @@ class LoginVC: UIViewController {
         }
     }
     
+    // Function to validate email
+    // Credit: https://stackoverflow.com/questions/27998409/email-phone-validation-in-swift
     func validateEmail(email: String) -> Bool {
         
         var returnValue = false
