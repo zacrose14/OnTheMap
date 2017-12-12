@@ -92,6 +92,7 @@ class LoginVC: UIViewController {
         return  returnValue
     }
     
+    // Facebook Login
     func performFBLogin(_ FBToken: String) {
         UdacityClient.sharedInstance().performFacebookLogin(FBToken, completionHandlerFBLogin: {(success, error) in
             if success {
@@ -148,6 +149,7 @@ class LoginVC: UIViewController {
     }
 }
 
+// Extension to handle Facebook Login
 extension LoginVC: FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginFaceBook: FBSDKLoginButton!) {
         print("Did log out of facebook")
