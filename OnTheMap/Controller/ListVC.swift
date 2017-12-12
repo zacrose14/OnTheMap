@@ -52,7 +52,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         ParseClient.sharedInstance().getStudentLocations(){(result, error) in
             // proceeed if we got result from Parse API with student locations (information)
             if error == nil {
-                ParseClient.sharedInstance().studentDictionary = result!
+                StudentInfo.studentLocations = result!
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                 }
@@ -68,7 +68,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cellReuseIdentifier = "studentInfoTableCell"
-        let student = ParseClient.sharedInstance().studentDictionary[indexPath.row]
+        let student = StudentInfo.studentLocations[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)! as UITableViewCell
         
@@ -80,12 +80,12 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ParseClient.sharedInstance().studentDictionary.count
+        return StudentInfo.studentLocations.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let studentURL = ParseClient.sharedInstance().studentDictionary[indexPath.row].mediaURL
+        let studentURL = StudentInfo.studentLocations[indexPath.row].mediaURL
         
         if let studentMediaURL = URL(string: studentURL!), UIApplication.shared.canOpenURL(studentMediaURL) {
             // Open URL

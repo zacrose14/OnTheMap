@@ -13,9 +13,6 @@ class UdacityClient : NSObject {
     // Shared session
     var session = URLSession.shared
     
-    // Student public dictionary used in ListVC and MapVC
-    var userModel = [UserModel]()
-    
     // User key from a POST session
     var userKey: String?
     

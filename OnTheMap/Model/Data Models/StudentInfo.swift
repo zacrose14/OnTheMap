@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct StudentInfo {
     
     var objectId: String?
@@ -20,6 +21,8 @@ struct StudentInfo {
     var latitude: Double?
     var createdAt: String?
     var updatedAt: String?
+    
+    static var studentLocations = [StudentInfo]()
     
     init(dictionary: [String : AnyObject]) {
         

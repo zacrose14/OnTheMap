@@ -49,13 +49,20 @@ extension UdacityClient {
             // GUARD: Was there an error?
             guard error == nil else {
                 
-                sendError("There was an error with your request: \(error!)")
+                sendError("There appears to be a problem with the network!")
+                return
+            }
+            
+            // GUARD: 403 Forbidden Error (Invalid Creds)
+            guard let statusCodeForbidden = (response as? HTTPURLResponse)?.statusCode, statusCodeForbidden != 403 else {
+                sendError("The email and/or password you entered are incorrect")
                 return
             }
             
             // GUARD: Did we get a successful 2XX response?
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError("App is currently unavailable.")
+                
+                sendError("Invalid Response. Please Try Again LAter")
                 return
             }
             
@@ -238,7 +245,7 @@ extension UdacityClient {
             if let user = parsedResult[UdacityClient.JSONResponseKeys.User] as? [String:AnyObject] {
                 
                 // populate publicUSerData variable
-                UdacityClient.sharedInstance().userModel = UserModel.userData(user)
+                UserModel.userDATA = UserModel.userData(user)
                 
                 completionHandlerForPublicUserData(true, nil)
             } else {

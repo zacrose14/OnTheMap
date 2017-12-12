@@ -50,16 +50,14 @@ class MapVC: UIViewController, MKMapViewDelegate {
     // Function to get student locations
     func getStudentLocations() {
 
-        if ParseClient.sharedInstance().studentDictionary.isEmpty {
-            displayError("There are no students to show!")
-        } else {
+        
         
         ParseClient.sharedInstance().getStudentLocations(){(result, error) in
             
-            ParseClient.sharedInstance().studentDictionary = result!
+            if let result = result {StudentInfo.studentLocations = result
             
             if error == nil {
-                ParseClient.sharedInstance().createAnnotationsFromLocations(result!) { (result, error) in
+                ParseClient.sharedInstance().createAnnotationsFromLocations(result) { (result, error) in
 
                     if error == nil {
                         
@@ -71,12 +69,12 @@ class MapVC: UIViewController, MKMapViewDelegate {
                     }
                     
                 }
-                
+                }
             } else {
-                self.displayError(error?.localizedDescription)
+                self.displayError("Error Loading Students!")
                 
             }
-            }
+            
             
         }
     }

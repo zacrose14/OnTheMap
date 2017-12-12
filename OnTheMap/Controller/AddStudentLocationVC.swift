@@ -106,7 +106,7 @@ class AddStudentLocationVC: UIViewController, MKMapViewDelegate {
                         var tempFirstName: String?
                         var tempLastName: String?
                         
-                        for member in UdacityClient.sharedInstance().userModel {
+                        for member in UserModel.userDATA {
                             tempKey = member.userKey!
                             tempFirstName = member.firstName!
                             tempLastName = member.lastName!

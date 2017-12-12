@@ -14,6 +14,8 @@ struct UserModel {
     var firstName: String?
     var lastName: String?
     
+    static var userDATA = [UserModel]()
+    
     init(dictionary: [String:AnyObject]) {
         
         userKey = dictionary[UdacityClient.JSONResponseKeys.Key] as? String

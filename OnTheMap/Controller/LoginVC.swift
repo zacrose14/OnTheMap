@@ -38,34 +38,54 @@ class LoginVC: UIViewController {
     // MARK: Login Action
     @IBAction func loginPressed(_ sender: Any) {
         
-        // Check to make sure fields aren't emply
-        if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            showAlert("Username or Password Empty")
-        } else {
+        let validEmail = validateEmail(email: emailTextField.text!)
+        
+        if validEmail == true {
+            self.activityIndicator.startAnimating()
+            
             UdacityClient.sharedInstance().authenticateUser(emailTextField.text!, password: passwordTextField.text!) { (success, error) in
-                performUIUpdatesOnMain {
-                    if success {
-                        
-                        // Success sends to MapVC
-                        if (error == nil) {
-                        self.activityIndicator.startAnimating()
-                        
-                            self.performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
-                            
-                        } else {
-                            performUIUpdatesOnMain {
-                                self.displayError(UdacityClient.LoginError.AccountError)
-                            }
-                        }
-                    } else {
-                        // Otherwise, display error here
-                        self.displayError(UdacityClient.LoginError.NetworkError)
+                
+                
+                if success {
+                    performUIUpdatesOnMain {
+                       
+                    self.activityIndicator.startAnimating()
+                    self.performSegue(withIdentifier: "loginSuccessSegue", sender: (Any).self)
                     }
                     
+                } else {
+                    self.displayError(error?.localizedDescription)
                 }
             }
- 
+        } else if validEmail == false {
+            displayError("The email you entered was not valid.")
+            
+        } else if emailTextField.text == "" || passwordTextField.text == "" {
+            displayError("Please fill out all fields!")
         }
+    }
+    
+    func validateEmail(email: String) -> Bool {
+        
+        var returnValue = false
+        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: emailRegEx)
+            let nsString = email as NSString
+            let results = regex.matches(in: email, range: NSRange(location: 0, length: nsString.length))
+            
+            if results.count > 0
+            {
+                returnValue = true
+            }
+            
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            returnValue = false
+        }
+        
+        return  returnValue
     }
     
     // MARK: Signup Action
@@ -89,10 +109,12 @@ class LoginVC: UIViewController {
     
     // MARK: Error Functions and Alerts
     func displayError(_ errorString: String?) {
-        
+        performUIUpdatesOnMain {
         self.activityIndicator.stopAnimating()
         if let errorString = errorString {
             self.showAlert(errorString)
+            
+            }
         }
     }
     
