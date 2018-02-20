@@ -140,7 +140,6 @@
                             <constraint firstItem="RKs-2h-ZB5" firstAttribute="top" secondItem="lcZ-uJ-BLF" secondAttribute="bottom" constant="15" id="vbZ-qq-juw"/>
                             <constraint firstItem="Iuu-UE-wY8" firstAttribute="leading" secondItem="Dcv-sf-LQu" secondAttribute="leading" id="xum-xV-nap"/>
                             <constraint firstItem="Dcv-sf-LQu" firstAttribute="trailing" secondItem="o6V-0I-els" secondAttribute="trailing" constant="16" id="z6b-Eg-NwQ"/>
-                            <constraint firstItem="o6V-0I-els" firstAttribute="leading" secondItem="Dcv-sf-LQu" secondAttribute="leading" constant="16" id="zjN-S8-nVj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dcv-sf-LQu"/>
                     </view>
@@ -198,7 +197,7 @@
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="icon_pin" id="0nM-e2-5AL">
+                                            <barButtonItem image="icon_pin" id="0nM-e2-5AL">
                                                 <connections>
                                                     <action selector="addLocationPressed:" destination="8rJ-Kc-sve" id="jyU-K4-d51"/>
                                                 </connections>
@@ -262,26 +261,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-E7-pLs" customClass="BorderedButton" customModule="OnTheMap" customModuleProvider="target">
-                                <rect key="frame" x="16" y="295" width="343" height="30"/>
+                                <rect key="frame" x="16" y="288" width="343" height="30"/>
                                 <state key="normal" title="LOG IN"/>
                                 <connections>
                                     <action selector="loginPressed:" destination="2p6-5A-vK3" eventType="touchUpInside" id="sns-Qw-f0T"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-QI-3x0">
-                                <rect key="frame" x="16" y="215" width="343" height="30"/>
+                                <rect key="frame" x="16" y="208" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ug-Zh-yDq">
-                                <rect key="frame" x="16" y="255" width="343" height="30"/>
+                                <rect key="frame" x="16" y="248" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bOu-mU-cxV">
-                                <rect key="frame" x="16" y="385" width="239" height="30"/>
+                                <rect key="frame" x="16" y="378" width="239" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdv-xP-vbH">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
@@ -299,16 +298,16 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="749" verticalHuggingPriority="749" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lU2-eA-cr1">
-                                <rect key="frame" x="177" y="177" width="20" height="30"/>
+                                <rect key="frame" x="177" y="170" width="20" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VqX-1I-T78"/>
                                 </constraints>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="hEd-3a-SQL">
-                                <rect key="frame" x="156" y="55" width="62" height="150"/>
+                                <rect key="frame" x="156" y="55" width="62" height="143"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-Yz-Xif" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="16" y="335" width="343" height="40"/>
+                                <rect key="frame" x="16" y="328" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="13o-K3-6kS"/>
                                 </constraints>
@@ -318,8 +317,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JFg-Yz-Xif" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="DO9-9L-rMR"/>
-                            <constraint firstItem="lU2-eA-cr1" firstAttribute="centerX" secondItem="Ltd-QI-3x0" secondAttribute="centerX" id="EUk-h8-CDu"/>
-                            <constraint firstItem="hEd-3a-SQL" firstAttribute="centerX" secondItem="lU2-eA-cr1" secondAttribute="centerX" id="FUc-KD-hag"/>
+                            <constraint firstItem="lU2-eA-cr1" firstAttribute="centerX" secondItem="zpt-hW-Kgo" secondAttribute="centerX" id="EUk-h8-CDu"/>
+                            <constraint firstItem="hEd-3a-SQL" firstAttribute="centerX" secondItem="fJ4-gm-ykY" secondAttribute="centerX" id="FUc-KD-hag"/>
                             <constraint firstItem="5ug-Zh-yDq" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="IhE-QR-xmZ"/>
                             <constraint firstItem="bOu-mU-cxV" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="Qe5-3m-rVd"/>
                             <constraint firstItem="6Ol-E7-pLs" firstAttribute="leading" secondItem="fJ4-gm-ykY" secondAttribute="leading" constant="16" id="ROw-Ui-bC8"/>
@@ -335,7 +334,7 @@
                             <constraint firstItem="6Ol-E7-pLs" firstAttribute="top" secondItem="5ug-Zh-yDq" secondAttribute="bottom" constant="10" id="mLK-WC-4DY"/>
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="trailing" secondItem="fJ4-gm-ykY" secondAttribute="trailing" constant="-16" id="mmf-Nb-HbY"/>
                             <constraint firstItem="Ltd-QI-3x0" firstAttribute="top" secondItem="hEd-3a-SQL" secondAttribute="bottom" constant="10" id="oLy-nk-0gm"/>
-                            <constraint firstItem="lU2-eA-cr1" firstAttribute="top" secondItem="fJ4-gm-ykY" secondAttribute="top" constant="157" id="uTM-Eo-9hj"/>
+                            <constraint firstItem="lU2-eA-cr1" firstAttribute="top" secondItem="hEd-3a-SQL" secondAttribute="top" constant="115" id="uTM-Eo-9hj"/>
                             <constraint firstItem="5ug-Zh-yDq" firstAttribute="trailing" secondItem="fJ4-gm-ykY" secondAttribute="trailing" constant="-16" id="xCS-cd-zuj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fJ4-gm-ykY"/>
@@ -380,6 +379,6 @@
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w1d-TX-W6j"/>
+        <segue reference="PZ3-Xg-BC2"/>
     </inferredMetricsTieBreakers>
 </document>

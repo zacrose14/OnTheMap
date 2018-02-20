@@ -63,7 +63,7 @@ class ParseClient : NSObject {
                 completionHandlerForTaskForPost(false, NSError(domain: "taskForPostMethod", code: 0, userInfo: userInfo))
             }
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                sendError("There was an error with your request: \(String(describing: error))")
                 return
             }
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {

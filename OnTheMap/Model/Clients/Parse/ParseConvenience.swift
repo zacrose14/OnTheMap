@@ -131,7 +131,7 @@ extension ParseClient {
             if success {
                 completionHandlerForPostStudent(true, nil)
             } else {
-                completionHandlerForPostStudent(false, "There appears to have been an error: \(error)")
+                completionHandlerForPostStudent(false, "There appears to have been an error: \(String(describing: error))")
             }
         }
     }
